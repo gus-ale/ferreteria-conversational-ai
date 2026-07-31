@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="FerreBot, asistente conversacional para ferreterías">
+    <title>FerreBot Conversational AI</title>
+    <link rel="stylesheet" href="/static/styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="intro">
+        <span class="eyebrow">FERRETERÍA CONVERSATIONAL AI</span>
+        <h1>Una conversación útil empieza con datos reales.</h1>
+        <p>
+          Consultá productos, precios, stock y documentación. FerreBot utiliza
+          herramientas controladas por el backend y puede derivarte con una persona.
+        </p>
+        <div class="feature-grid">
+          <article><strong>Texto</strong><span>FastAPI + memoria</span></article>
+          <article><strong>Voz</strong><span>WebRTC + Realtime</span></article>
+          <article><strong>Seguro</strong><span>Guardrails + allowlist</span></article>
+        </div>
+        <a class="docs-link" href="/docs">Abrir documentación Swagger →</a>
+      </section>
+
+      <section class="chat-card" aria-label="Chat con FerreBot">
+        <header>
+          <div class="brand-mark">F</div>
+          <div>
+            <h2>FerreBot</h2>
+            <p><span class="status-dot"></span> Modo demostración</p>
+          </div>
+          <button id="voiceButton" class="voice-button" type="button">
+            <span aria-hidden="true">🎙</span> Voz
+          </button>
+        </header>
+
+        <div id="voiceStatus" class="voice-status" hidden></div>
+
+        <div id="messages" class="messages" aria-live="polite">
+          <div class="message assistant">
+            <span class="speaker">FerreBot</span>
+            <p>
+              ¡Hola! Probá preguntarme: “¿Cuánto stock queda del martillo M20?”
+            </p>
+          </div>
+        </div>
+
+        <div class="suggestions" aria-label="Preguntas sugeridas">
+          <button type="button">Precio de la pintura exterior</button>
+          <button type="button">Garantía del taladro T700</button>
+          <button type="button">Quiero hablar con una persona</button>
+        </div>
+
+        <form id="chatForm">
+          <label class="sr-only" for="messageInput">Escribí tu consulta</label>
+          <input
+            id="messageInput"
+            name="message"
+            maxlength="2000"
+            autocomplete="off"
+            placeholder="Escribí tu consulta..."
+            required
+          >
+          <button id="sendButton" type="submit">Enviar</button>
+        </form>
+        <footer>
+          <span id="conversationState">Conversación nueva</span>
+          <button id="newConversation" type="button">Reiniciar</button>
+        </footer>
+      </section>
+    </main>
+
+    <script src="/static/app.js" defer></script>
+  </body>
+</html>
+
